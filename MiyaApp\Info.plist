@@ -22,6 +22,8 @@
 	<string>100</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+	<string>AppIcon</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UILaunchScreen</key>

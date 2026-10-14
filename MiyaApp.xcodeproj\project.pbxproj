@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		1A2B3C4D0000000000000006 /* MiyaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D0000000000000003 /* MiyaApp.swift */; };
+		1A2B3C4D0000000000000020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A2B3C4D0000000000000021 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1A2B3C4D0000000000000003 /* MiyaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiyaApp.swift; sourceTree = "<group>"; };
 		1A2B3C4D0000000000000004 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A2B3C4D0000000000000005 /* MiyaApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MiyaApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A2B3C4D0000000000000021 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 			isa = PBXGroup;
 			children = (
 				1A2B3C4D0000000000000003 /* MiyaApp.swift */,
+				1A2B3C4D0000000000000021 /* Assets.xcassets */,
 				1A2B3C4D0000000000000004 /* Info.plist */,
 			);
 			path = MiyaApp;
@@ -105,6 +108,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A2B3C4D0000000000000020 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
