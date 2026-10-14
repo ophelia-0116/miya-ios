@@ -12,7 +12,7 @@ struct MiyaWebView: UIViewRepresentable {
         Coordinator(onLoading: onLoadingChange, onError: onError)
     }
 
-    class Coordinator: NSObject, WKNavigationDelegate {
+    class Coordinator: NSObject, WKNavigationDelegate, WKScriptMessageHandler {
         let onLoading: (Bool) -> Void
         let onError: (String) -> Void
         var webView: WKWebView?
@@ -21,6 +21,15 @@ struct MiyaWebView: UIViewRepresentable {
         init(onLoading: @escaping (Bool) -> Void, onError: @escaping (String) -> Void) {
             self.onLoading = onLoading
             self.onError = onError
+        }
+
+        /// 网页发来 "exitApp" 消息时退出应用（设置页的「退出」按钮）
+        func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+            if message.name == "exitApp" {
+                DispatchQueue.main.async {
+                    exit(0)
+                }
+            }
         }
 
         func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
@@ -43,7 +52,11 @@ struct MiyaWebView: UIViewRepresentable {
     }
 
     func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
+        let config = WKWebViewConfiguration()
+        let contentController = WKUserContentController()
+        contentController.add(context.coordinator, name: "exitApp")
+        config.userContentController = contentController
+        let webView = WKWebView(frame: .zero, configuration: config)
         webView.navigationDelegate = context.coordinator
         // 强制使用标准 iPhone Safari 标识，避免网页环境检测误判
         webView.customUserAgent =
