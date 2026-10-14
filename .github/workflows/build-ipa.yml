@@ -21,13 +21,14 @@ jobs:
             -target MiyaApp \
             -configuration Release \
             -sdk iphoneos \
-            -derivedDataPath build \
+            OBJROOT=$PWD/build/obj \
+            SYMROOT=$PWD/build/sym \
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGNING_REQUIRED=NO \
             CODE_SIGN_IDENTITY="" \
             build
           mkdir -p Payload
-          cp -R build/Build/Products/Release-iphoneos/MiyaApp.app Payload/
+          cp -R build/sym/Release-iphoneos/MiyaApp.app Payload/
           zip -q -r MiyaApp.ipa Payload
 
       - name: Upload ipa
